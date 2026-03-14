@@ -9,15 +9,15 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  std::filesystem::path file = argv[1];
-
-  if (!std::filesystem::exists(file)) {
-    std::cerr << "Error: file does not exist\n";
-    return 1;
-  }
-
   try {
-    binfo::inspect_file(file);
+    std::filesystem::path path = argv[1];
+
+    if (!std::filesystem::exists(path)) {
+      std::cerr << "Error: file does not exist\n";
+      return 1;
+    }
+
+    binfo::inspect(binfo::BinaryFile{path});
   } catch (const std::exception &e) {
     std::cerr << "Error: " << e.what() << "\n";
     return 1;

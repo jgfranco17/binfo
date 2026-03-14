@@ -7,7 +7,7 @@ BUILD_DIR := build
 SRCS := $(wildcard $(SRC_DIR)/*.cpp)
 OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS))
 HDRS := $(wildcard include/*.hpp)
-TIDY_CHECKS := bugprone-*,clang-analyzer-*,modernize-*,performance-*,readability-*
+TIDY_CHECKS := bugprone-*,clang-analyzer-*,modernize-*,-modernize-use-trailing-return-type,performance-*,readability-*
 
 TARGET := $(BUILD_DIR)/binfo
 
@@ -22,14 +22,11 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-clean:
-	rm -rf $(BUILD_DIR)
-
 run: build
 	./$(TARGET)
 
 tidy:
-	clang-tidy $(SRCS) -p $(BUILD_DIR) --checks='$(TIDY_CHECKS)'
+	clang-tidy $(SRCS) --checks='$(TIDY_CHECKS)' -- $(CXXFLAGS)
 
 format:
 	clang-format -i $(SRCS) $(HDRS)
