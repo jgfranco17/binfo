@@ -21,4 +21,5 @@ add_executable(
     binfo
     src/main.cpp
     src/inspect.cpp
+    src/detect.cpp
 )

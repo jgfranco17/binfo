@@ -1,4 +1,5 @@
 #include "inspect.hpp"
+#include "detect.hpp"
 
 #include <fstream>
 #include <iostream>
@@ -14,8 +15,11 @@ void inspect_file(const std::filesystem::path &path) {
 
   auto size = file.tellg();
 
+  std::string format = detect_format(path);
+
   std::cout << "File: " << path << "\n";
   std::cout << "Size: " << size << " bytes\n";
+  std::cout << "Format: " << format << "\n";
 }
 
 } // namespace binfo
