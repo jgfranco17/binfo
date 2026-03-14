@@ -9,7 +9,7 @@ OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS))
 HDRS := $(wildcard include/*.hpp)
 TIDY_CHECKS := bugprone-*,clang-analyzer-*,modernize-*,performance-*,readability-*
 
-TARGET := $(BUILD_DIR)/bininspect
+TARGET := $(BUILD_DIR)/binfo
 
 .PHONY: all clean run tidy format
 

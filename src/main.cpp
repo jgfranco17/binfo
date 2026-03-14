@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[]) {
   if (argc < 2) {
-    std::cerr << "Usage: bininspect <file>\n";
+    std::cerr << "Usage: binfo <file>\n";
     return 1;
   }
 
@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
   }
 
   try {
-    bininspect::inspect_file(file);
+    binfo::inspect_file(file);
   } catch (const std::exception &e) {
     std::cerr << "Error: " << e.what() << "\n";
     return 1;

@@ -2,7 +2,7 @@
 
 #include <filesystem>
 
-namespace bininspect {
+namespace binfo {
 
 void inspect_file(const std::filesystem::path &path);
 

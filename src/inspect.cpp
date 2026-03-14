@@ -3,7 +3,7 @@
 #include <fstream>
 #include <iostream>
 
-namespace bininspect {
+namespace binfo {
 
 void inspect_file(const std::filesystem::path &path) {
   std::ifstream file(path, std::ios::binary | std::ios::ate);
@@ -18,4 +18,4 @@ void inspect_file(const std::filesystem::path &path) {
   std::cout << "Size: " << size << " bytes\n";
 }
 
-} // namespace bininspect
+} // namespace binfo

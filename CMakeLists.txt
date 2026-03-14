@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(
-    bininspect
+    binfo
     VERSION 0.1
     LANGUAGES CXX
 )
@@ -18,7 +18,7 @@ add_compile_options(
 include_directories(include)
 
 add_executable(
-    bininspect
+    binfo
     src/main.cpp
     src/inspect.cpp
 )
