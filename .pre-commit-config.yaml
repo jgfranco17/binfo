@@ -1,0 +1,28 @@
+---
+# Project pre-commit configuration
+
+fail_fast: false
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: detect-private-key
+
+  - repo: https://github.com/codespell-project/codespell.git
+    rev: v2.4.1
+    hooks:
+      - id: codespell
+        args: [-w]
+        files: ^.*\.(md|cpp|jinja|yaml|yml|sh)$
+
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.47.0
+    hooks:
+      - id: markdownlint
+        args: [--config, ".markdownlint.yaml"]

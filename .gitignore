@@ -1,0 +1,18 @@
+# Local development
+.vscode/
+.DS_Store/
+.idea/
+*.sw[pon]
+
+# Build artifacts
+build/
+*.o
+*.out
+*.log
+
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
