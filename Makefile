@@ -11,7 +11,9 @@ TIDY_CHECKS := bugprone-*,clang-analyzer-*,modernize-*,-modernize-use-trailing-r
 
 TARGET := $(BUILD_DIR)/binfo
 
-.PHONY: all clean run tidy format
+CMAKE_BUILD_DIR := build/cmake
+
+.PHONY: all clean run tidy format test
 
 build: $(TARGET)
 
@@ -30,3 +32,8 @@ tidy:
 
 format:
 	clang-format -i $(SRCS) $(HDRS)
+
+test:
+	cmake -B $(CMAKE_BUILD_DIR) -S . -DCMAKE_BUILD_TYPE=Debug
+	cmake --build $(CMAKE_BUILD_DIR)
+	ctest --test-dir $(CMAKE_BUILD_DIR) --output-on-failure
